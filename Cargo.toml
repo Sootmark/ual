@@ -1,0 +1,34 @@
+[package]
+name = "sootmark-ual"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.80"
+description = "Windows Server User Access Logging (UAL, the Sum folder's .mdb databases) for forensics: which accounts and addresses used which server role, when, and how often each day of the year, read with sootmark-ese."
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/Sootmark/ual"
+homepage = "https://sootmark.com"
+keywords = ["forensics", "dfir", "incident-response", "windows-server", "ual"]
+# Sources only: test fixtures stay in the repository.
+include = ["/src", "/README.md", "/LICENSE-APACHE", "/LICENSE-MIT"]
+
+[lib]
+name = "ual"
+
+[dependencies]
+common = { package = "sootmark-common", version = "0.3.7" }
+ese = { package = "sootmark-ese", version = "0.1.1" }
+
+[dev-dependencies]
+proptest = "1"
+
+[lints.rust]
+unsafe_code = "forbid"
+missing_docs = "warn"
+
+[lints.clippy]
+pedantic = { level = "warn", priority = -1 }
+module_name_repetitions = "allow"
+cast_possible_truncation = "allow"
+cast_sign_loss = "allow"
+cast_possible_wrap = "allow"
+cast_precision_loss = "allow"

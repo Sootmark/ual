@@ -1,0 +1,11 @@
+plaso.tsv: what plaso's own User Access Logging parser (esedb/user_access_logging,
+the log2timeline/plaso:20260720 Docker image) reads from the two test databases
+(tests/fixtures/plaso/), its 42 events grouped back into one line per row:
+
+- client: role, role name, account, address, total accesses, first and last
+  access (FILETIME), tenant;
+- role: role, role name, first and last seen;
+- dns: address, host name, last seen;
+- system: creation time, DNS host name, domain, build.
+
+Written from plaso's json_line output (psort -o json_line), not from this crate.
